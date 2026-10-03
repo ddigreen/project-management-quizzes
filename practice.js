@@ -31,7 +31,7 @@
     } catch (_) { /* Use the initial frame height if measurement is unavailable. */ }
   }
   frame.addEventListener('load', bindHeight);
-  if (exam) frame.src = 'exams.html?v=8';
-  else if (mcq) frame.src = 'lectures-mcq.html?v=8';
+  if (exam) frame.src = 'exams.html?v=9';
+  else if (mcq) frame.src = 'lectures-mcq.html?v=9';
   else if (frame.contentDocument?.readyState === 'complete') bindHeight();
 })();
