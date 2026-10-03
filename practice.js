@@ -25,6 +25,6 @@
     } catch (_) { /* Use the initial frame height if measurement is unavailable. */ }
   }
   frame.addEventListener('load', bindHeight);
-  if (exam) frame.src = 'exams.html';
+  if (exam) frame.src = 'exams.html?v=3';
   else if (frame.contentDocument?.readyState === 'complete') bindHeight();
 })();
