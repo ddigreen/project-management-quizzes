@@ -2593,7 +2593,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     localStorage.setItem(probeKey, "1");
     localStorage.removeItem(probeKey);
     storage = localStorage;
-    const savedState = storage.getItem(storageKey);
+    const savedState = storage.getItem(storageKey) ?? storage.getItem(`codex:visualization-widget-state-v2:${JSON.stringify([globalThis.location.pathname, ""])}`);
     if (savedState != null) {
       try {
         state = parseState(savedState);
@@ -2708,10 +2708,6 @@ html&gt;body{padding:0}&lt;/style&gt;
     return;
   }
   globalThis.addEventListener("resize", () => {
-    const height = Number.parseFloat(frame.style.height);
-    if (!Number.isFinite(height) || height <= viewportHeight) {
-      frame.style.removeProperty("height");
-    }
     viewportHeight = globalThis.innerHeight;
     channel.port1.postMessage({ type: "measure" });
   });
