@@ -1626,9 +1626,9 @@ html&gt;body{padding:0}&lt;/style&gt;
         &lt;/label&gt;
         &lt;label class=&quot;form-label&quot;&gt;Формат
           &lt;select class=&quot;form-select&quot; id=&quot;pm-format&quot;&gt;
-            &lt;option value=&quot;all&quot;&gt;Все форматы&lt;/option&gt;
-            &lt;option value=&quot;mcq&quot;&gt;Выбор ответа&lt;/option&gt;
-            &lt;option value=&quot;written&quot;&gt;Письменные ответы и расчёты&lt;/option&gt;
+            &lt;option value=&quot;all&quot;&gt;С открытыми вопросами&lt;/option&gt;
+            &lt;option value=&quot;mcq&quot;&gt;Без открытых вопросов&lt;/option&gt;
+            &lt;option value=&quot;written&quot;&gt;Только открытые вопросы и расчёты&lt;/option&gt;
           &lt;/select&gt;
         &lt;/label&gt;
         &lt;label class=&quot;form-label&quot;&gt;Объём
@@ -2631,7 +2631,7 @@ html&gt;body{padding:0}&lt;/style&gt;
     localStorage.setItem(probeKey, "1");
     localStorage.removeItem(probeKey);
     storage = localStorage;
-    const savedState = storage.getItem(storageKey) ?? storage.getItem(`codex:visualization-widget-state-v2:${JSON.stringify([globalThis.location.pathname, ""])}`);
+    const savedState = storage.getItem(storageKey) ?? storage.getItem(`codex:visualization-widget-state-v2:${JSON.stringify([globalThis.location.pathname, "?v=3"])}`) ?? storage.getItem(`codex:visualization-widget-state-v2:${JSON.stringify([globalThis.location.pathname, ""])}`);
     if (savedState != null) {
       try {
         state = parseState(savedState);
